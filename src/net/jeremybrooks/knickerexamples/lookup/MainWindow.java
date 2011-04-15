@@ -218,7 +218,7 @@ public class MainWindow extends javax.swing.JFrame implements Observer {
 		BasicConfigurator.configure();
 		
 		// Set Wordnik API key
-		System.setProperty("WORDNIK_API_KEY", "5458ce49330219f23e0020790810f29b3818096f5fbbf8560");
+		System.setProperty("WORDNIK_API_KEY", "");
                 MainWindow window = new MainWindow();
 		Notifier.getInstance().addObserver(window);
 		window.setVisible(true);
