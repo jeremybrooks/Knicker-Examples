@@ -12,6 +12,7 @@ import java.io.ByteArrayInputStream;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Properties;
 import javax.swing.JOptionPane;
 import javazoom.jl.player.Player;
 import net.jeremybrooks.knicker.dto.Definition;
@@ -25,7 +26,7 @@ import org.apache.log4j.Logger;
 public class MainWindow extends javax.swing.JFrame implements Observer {
 
 
-    private Logger logger = Logger.getLogger(MainWindow.class);
+    private static Logger logger = Logger.getLogger(MainWindow.class);
 
     /** The audio data to play. */
     private byte[] audio;
@@ -217,8 +218,22 @@ public class MainWindow extends javax.swing.JFrame implements Observer {
             public void run() {
 		BasicConfigurator.configure();
 		
-		// Set Wordnik API key
-		System.setProperty("WORDNIK_API_KEY", "");
+		// Load the Wordnik API key
+		// Put your key in a file called secret.properties in the
+		// src directory
+		Properties p = new Properties();
+		try {
+		    p.load(MainWindow.class.getResourceAsStream("/secret.properties"));
+		    String key = p.getProperty("WORDNIK_API_KEY");
+		    if (key == null || key.isEmpty()) {
+			throw new Exception("Property WORDNIK_API_KEY not found.");
+		    }
+		    System.setProperty("WORDNIK_API_KEY", key);
+		} catch (Exception e) {
+		    logger.fatal("Could not load api key from secret.properties.", e);
+		    System.exit(1);
+		}
+		
                 MainWindow window = new MainWindow();
 		Notifier.getInstance().addObserver(window);
 		window.setVisible(true);

@@ -11,4 +11,4 @@ dist
 deploy
 web
 nbproject/private/profiler/*.hprof
-test/net/jeremybrooks/knicker/secret.properties
+src/secret.properties

@@ -4,4 +4,19 @@ This project is designed to demonstrate how to use the Knicker library.
 
 You can get the Knicker library here: http://github.com/knicker
 
+Before you can use the sample code, you need to get an API key from Wordnik.
+You can get a key here: http://developer.wordnik.com/
 
+Once you have your key, you need to put it in a file called secret.properties
+in the src directory. The file should look like this:
+
+WORDNIK_API_KEY=your api key
+
+The examples will load the key from this file and use it.
+
+To build the examples, you need ant. Type ant -projecthelp to see the available
+targets. Most likely all you will need to do is "ant run" to build and run the
+project.
+
+If you have any questions, you can contact me via email, twitter, or on the
+Wordnik API mailing list.
