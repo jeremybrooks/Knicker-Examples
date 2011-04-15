@@ -5,7 +5,7 @@
  * modification, are permitted with no restriction.
  *
  */
-package net.jeremybrooks.knickerexamples.lookup;
+package net.jeremybrooks.knickerexamples;
 
 import java.util.ArrayList;
 import java.util.EnumSet;

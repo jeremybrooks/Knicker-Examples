@@ -6,7 +6,7 @@
  *
  */
 
-package net.jeremybrooks.knickerexamples.lookup;
+package net.jeremybrooks.knickerexamples;
 
 import java.io.ByteArrayInputStream;
 import java.util.List;
