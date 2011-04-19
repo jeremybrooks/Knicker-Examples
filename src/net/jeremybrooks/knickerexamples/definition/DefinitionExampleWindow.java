@@ -221,6 +221,7 @@ public class DefinitionExampleWindow extends javax.swing.JFrame implements Obser
 
 		    int i = 1;
 		    for (Definition def : defList) {
+			logger.debug(def.toString());
 			sb.append("<p><b>").append(i++).append(".</b> ");
 			sb.append("<i>").append(def.getPartOfSpeech()).append(": </i>");
 			sb.append(def.getText());

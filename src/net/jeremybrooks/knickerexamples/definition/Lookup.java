@@ -7,7 +7,7 @@
 package net.jeremybrooks.knickerexamples.definition;
 
 import java.util.ArrayList;
-import java.util.EnumSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import net.jeremybrooks.knicker.Knicker.SourceDictionary;
 import net.jeremybrooks.knicker.WordApi;
@@ -52,12 +52,12 @@ public class Lookup extends javax.swing.SwingWorker<List<Definition>, Object> {
     protected List<Definition> doInBackground() throws Exception {
 
 	// look in these dictionaries, in this order
-	EnumSet<SourceDictionary> source = EnumSet.of(
-		SourceDictionary.ahd,
-		SourceDictionary.wordnet,
-		SourceDictionary.wiktionary,
-		SourceDictionary.webster,
-		SourceDictionary.century);
+	LinkedHashSet<SourceDictionary> source = new LinkedHashSet<SourceDictionary>();
+	source.add(SourceDictionary.ahd);
+	source.add(SourceDictionary.wordnet);
+	source.add(SourceDictionary.wiktionary);
+	source.add(SourceDictionary.webster);
+	source.add(SourceDictionary.century);
 
 	// get the definitions
 	List<Definition> retList = WordApi.definitions(word, source);
